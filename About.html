@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+       body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f5f5;
+    }
+    .about-section {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .about-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .about-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    .about-section h1, .about-section h2 {
+      color: #fff;
+    }
+    .about-section p {
+      color: #fff;
+    }
+    .team-section .card {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .team-section .card img {
+      border-bottom: 5px solid #007bff;
+    }
+    .team-section .card-title {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+
+  <!-- Main Content -->
+  <section class="about-section py-5" style="background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 animate__animated animate__fadeInLeft">
+          <h1 class="display-4 mb-4">About Us</h1>
+          <p class="lead">We are a team of passionate individuals dedicated to helping students achieve their academic dreams.</p>
+          <p>At our scholarship website, our mission is to provide a comprehensive platform for students to easily find and apply for scholarships that match their interests, academic achievements, and financial needs.</p>
+          <p>We believe that education has the power to transform lives, and we strive to remove financial barriers that may prevent deserving students from pursuing their educational goals.</p>
+        </div>
+        <div class="col-md-6 animate__animated animate__fadeInRight">
+          <img src="https://via.placeholder.com/500x400" alt="About Us Image" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Meet Our Team</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card animate__animated animate__fadeInUp">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Team Member">
+            <div class="card-body">
+              <h5 class="card-title">John Doe</h5>
+              <p class="card-text">Founder & CEO</p>
+            </div>
+          </div>
+        </div>
+        <!-- Add more team member cards here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
