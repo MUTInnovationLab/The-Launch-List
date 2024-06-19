@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scholarship Admin</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Add New Scholarship or Bursary</h1>
+    <form id="scholarshipForm" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Scholarship/Bursary Name</label>
+        <input type="text" class="form-control" id="name" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="4" placeholder="" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="name">Fields covered</label>
+        <input type="text" class="form-control" id="fields" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Expenses Covered</label>
+        <input type="text" class="form-control" id="expenses" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Eligibility</label>
+        <input type="text" class="form-control" id="eligibility" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Documents Required</label>
+        <input type="text" class="form-control" id="documentz" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="deadline">Application Deadline</label>
+        <input type="date" class="form-control" id="deadline" required>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Bursary provider info</label>
+        <input type="text" class="form-control" id="info" placeholder="" required>
+      </div>
+
+      <div class="form-group">
+        <label for="documents">Required Documents</label>
+        <input type="file" class="form-control-file" id="image" multiple required>
+        <small class="form-text text-muted"></small>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+    import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+    import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyA1yd7lAFXJh-VZ2il5fDzqfWqGuSyregY",
+      authDomain: "workscape-84122.firebaseapp.com",
+      projectId: "workscape-84122",
+      storageBucket: "workscape-84122.appspot.com",
+      messagingSenderId: "734998941399",
+      appId: "1:734998941399:web:1a69bc537ee162f64e6a92"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    document.getElementById('scholarshipForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const description = document.getElementById('description').value;
+      const fields = document.getElementById('fields').value;
+      const expenses = document.getElementById('expenses').value;
+      const eligibility = document.getElementById('eligibility').value;
+      const documentz = document.getElementById('documentz').value;
+      const deadline = document.getElementById('deadline').value;
+      const info = document.getElementById('info').value;
+      const files = document.getElementById('files').value;
+
+      try {
+        const docRef = await addDoc(collection(db, 'scholarships'), {
+          name,
+          description,
+          fields,
+          expenses,
+          eligibility,
+          documentz,
+          deadline,
+          info,
+          timestamp: serverTimestamp()
+        });
+
+        const storageRef = ref(storage, `scholarships/${docRef.id}`);
+        const uploadPromises = [];
+        for (const file of files) {
+          const fileRef = ref(storageRef, file.name);
+          uploadPromises.push(uploadBytes(fileRef, file));
+        }
+        await Promise.all(uploadPromises);
+
+        const fileURLs = await Promise.all(uploadPromises.map(async (uploadTask) => {
+          const fileRef = uploadTask.ref;
+          return await getDownloadURL(fileRef);
+        }));
+
+        await addDoc(collection(db, 'scholarships', docRef.id, 'documents'), {
+          files: fileURLs
+        });
+
+        alert('Scholarship or bursary added successfully!');
+        document.getElementById('scholarshipForm').reset();
+      } catch (error) {
+        console.error('Error adding document: ', error);
+        alert('Failed to add scholarship or bursary.');
+      }
+    });
+  </script>
+  <!-- Custom JS -->
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
