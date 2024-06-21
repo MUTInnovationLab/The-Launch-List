@@ -4,12 +4,13 @@ import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.g
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA1yd7lAFXJh-VZ2il5fDzqfWqGuSyregY",
-    authDomain: "workscape-84122.firebaseapp.com",
-    projectId: "workscape-84122",
-    storageBucket: "workscape-84122.appspot.com",
-    messagingSenderId: "734998941399",
-    appId: "1:734998941399:web:1a69bc537ee162f64e6a92"
+    apiKey: "AIzaSyAWObvbOoDNyhvhWJutoRhjIWdNTsTL6-k",
+  authDomain: "scholarship-480e8.firebaseapp.com",
+  projectId: "scholarship-480e8",
+  storageBucket: "scholarship-480e8.appspot.com",
+  messagingSenderId: "900430271329",
+  appId: "1:900430271329:web:ca53beb6a6aea45d742b20",
+  measurementId: "G-0QSSG444CW"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -20,17 +21,25 @@ document.getElementById('scholarshipForm').addEventListener('submit', async (e) 
     e.preventDefault();
     
     const name = document.getElementById('name').value;
-    const description = document.getElementById('description').value;
-    const deadline = document.getElementById('deadline').value;
-    const amount = document.getElementById('amount').value;
+      const description = document.getElementById('description').value;
+      const fields = document.getElementById('fields').value;
+      const expenses = document.getElementById('expenses').value;
+      const eligibility = document.getElementById('eligibility').value;
+      const documentz = document.getElementById('documentz').value;
+      const deadline = document.getElementById('deadline').value;
+      const info = document.getElementById('info').value;
     const documents = document.getElementById('documents').files;
     
     try {
         const docRef = await addDoc(collection(db, 'scholarships'), {
             name,
-            description,
-            deadline,
-            amount,
+          description,
+          fields,
+          expenses,
+          eligibility,
+          documentz,
+          deadline,
+          info,
             createdAt: serverTimestamp()
         });
 
@@ -58,3 +67,4 @@ document.getElementById('scholarshipForm').addEventListener('submit', async (e) 
         alert('Error adding scholarship. Please try again.');
     }
 });
+
