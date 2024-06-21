@@ -15,6 +15,39 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
+
+
+// Import page.js
+import page from 'https://cdnjs.cloudflare.com/ajax/libs/page.js/1.11.6/page.mjs';
+
+// Helper function to load HTML content
+function loadContent(url) {
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('content').innerHTML = html;
+    });
+}
+
+
+page('/', () => loadContent('home.html'));
+page('/scholarships', () => loadContent('scholarships.html'));
+page('/about', () => loadContent('about.html'));
+page('/contact', () => loadContent('contact.html'));
+
+
+page();
+
+
+document.querySelectorAll('[data-navigate]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const path = e.target.getAttribute('data-navigate');
+    page(path);
+  });
+});
+
+
 async function fetchScholarships() {
     try {
         const querySnapshot = await getDocs(collection(db, 'scholarships'));
