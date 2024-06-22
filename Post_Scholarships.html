@@ -48,8 +48,19 @@
       </div>
 
       <div class="form-group">
-        <label for="documents">Required Documents</label>
+        <label for="name">Application Link</label>
+        <input type="text" class="form-control" id="link" placeholder="" required>
+      </div>
+
+      <div class="form-group">
+        <label for="documents">Upload Image/Logo</label>
         <input type="file" class="form-control-file" id="image" multiple required>
+        <small class="form-text text-muted"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="documents">Upload Document details</label>
+        <input type="file" class="form-control-file" id="docs" multiple required>
         <small class="form-text text-muted"></small>
       </div>
       
@@ -86,7 +97,9 @@
       const documentz = document.getElementById('documentz').value;
       const deadline = document.getElementById('deadline').value;
       const info = document.getElementById('info').value;
+      const link = document.getElementById('link').value;
       const images = document.getElementById('image').value;
+      const documents2 = document.getElementById('docs').files
 
       try {
         const docRef = await addDoc(collection(db, 'scholarships'), {
@@ -98,6 +111,7 @@
           documentz,
           deadline,
           info,
+          link,
           timestamp: serverTimestamp()
         });
 
