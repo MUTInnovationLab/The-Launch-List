@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Post Scholarship</title>
+  <title>Scholarship Admin</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Custom CSS -->
@@ -22,22 +22,37 @@
         <textarea class="form-control" id="description" rows="4" placeholder="" required></textarea>
       </div>
       <div class="form-group">
+        <label for="name">Fields covered</label>
+        <input type="text" class="form-control" id="fields" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Expenses Covered</label>
+        <input type="text" class="form-control" id="expenses" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Eligibility</label>
+        <input type="text" class="form-control" id="eligibility" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Documents Required</label>
+        <input type="text" class="form-control" id="documentz" placeholder="" required>
+      </div>
+      <div class="form-group">
         <label for="deadline">Application Deadline</label>
         <input type="date" class="form-control" id="deadline" required>
       </div>
+
       <div class="form-group">
-        <label for="amount">Award Amount</label>
-        <input type="number" class="form-control" id="amount" placeholder="" required>
+        <label for="name">Bursary provider info</label>
+        <input type="text" class="form-control" id="info" placeholder="" required>
       </div>
-      <div class="form-group">
-        <label for="fee">Application Fee</label>
-        <input type="number" class="form-control" id="fee" placeholder="" required>
-      </div>
+
       <div class="form-group">
         <label for="documents">Required Documents</label>
-        <input type="file" class="form-control-file" id="documents" multiple required>
+        <input type="file" class="form-control-file" id="image" multiple required>
         <small class="form-text text-muted"></small>
       </div>
+      
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
@@ -48,13 +63,12 @@
     import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
 
     // const firebaseConfig = {
-    //   apiKey: "AIzaSyAWObvbOoDNyhvhWJutoRhjIWdNTsTL6-k",
-    //   authDomain: "scholarship-480e8.firebaseapp.com",
-    //   projectId: "scholarship-480e8",
-    //   storageBucket: "scholarship-480e8.appspot.com",
-    //   messagingSenderId: "900430271329",
-    //   appId: "1:900430271329:web:ca53beb6a6aea45d742b20",
-    //   measurementId: "G-0QSSG444CW"
+    //   apiKey: "AIzaSyA1yd7lAFXJh-VZ2il5fDzqfWqGuSyregY",
+    //   authDomain: "workscape-84122.firebaseapp.com",
+    //   projectId: "workscape-84122",
+    //   storageBucket: "workscape-84122.appspot.com",
+    //   messagingSenderId: "734998941399",
+    //   appId: "1:734998941399:web:1a69bc537ee162f64e6a92"
     // };
 
     const app = initializeApp(firebaseConfig);
@@ -66,18 +80,24 @@
 
       const name = document.getElementById('name').value;
       const description = document.getElementById('description').value;
+      const fields = document.getElementById('fields').value;
+      const expenses = document.getElementById('expenses').value;
+      const eligibility = document.getElementById('eligibility').value;
+      const documentz = document.getElementById('documentz').value;
       const deadline = document.getElementById('deadline').value;
-      const amount = document.getElementById('amount').value;
-      const fee = document.getElementById('fee').value;
-      const files = document.getElementById('documents').files;
+      const info = document.getElementById('info').value;
+      const images = document.getElementById('image').value;
 
       try {
         const docRef = await addDoc(collection(db, 'scholarships'), {
           name,
           description,
+          fields,
+          expenses,
+          eligibility,
+          documentz,
           deadline,
-          amount,
-          fee,
+          info,
           timestamp: serverTimestamp()
         });
 

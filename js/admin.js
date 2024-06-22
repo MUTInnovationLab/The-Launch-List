@@ -28,7 +28,7 @@ document.getElementById('scholarshipForm').addEventListener('submit', async (e) 
       const documentz = document.getElementById('documentz').value;
       const deadline = document.getElementById('deadline').value;
       const info = document.getElementById('info').value;
-    const documents = document.getElementById('documents').files;
+    const documents = document.getElementById('image').files;
     
     try {
         const docRef = await addDoc(collection(db, 'scholarships'), {
