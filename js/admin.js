@@ -1,6 +1,5 @@
-// File: js/admin.js
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { getFirestore, collection, addDoc, serverTimestamp, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
 
 const firebaseConfig = {
@@ -17,6 +16,46 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
+// Fetch and populate categories
+const fetchCategories = async () => {
+    try {
+        const querySnapshot = await getDocs(collection(db, 'scholarships'));
+        const categorySelect = document.getElementById('category');
+        
+        // Use a Set to track unique categories in a case-insensitive manner
+        const categoriesSet = new Set();
+
+        querySnapshot.forEach((doc) => {
+            const category = doc.data().category;
+            const categoryLower = category.toLowerCase();
+            
+            if (!categoriesSet.has(categoryLower)) {
+                categoriesSet.add(categoryLower);
+                
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categorySelect.appendChild(option);
+            }
+        });
+    } catch (error) {
+        console.error('Error fetching categories: ', error);
+    }
+};
+
+// Initialize categories on page load
+document.addEventListener('DOMContentLoaded', fetchCategories);
+
+// Show new category input when 'Add new category' is selected
+document.getElementById('category').addEventListener('change', (e) => {
+    const newCategoryGroup = document.getElementById('new-category-group');
+    if (e.target.value === 'new') {
+        newCategoryGroup.style.display = 'block';
+    } else {
+        newCategoryGroup.style.display = 'none';
+    }
+});
+
 document.getElementById('scholarshipForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -29,9 +68,40 @@ document.getElementById('scholarshipForm').addEventListener('submit', async (e) 
     const deadline = document.getElementById('deadline').value;
     const info = document.getElementById('info').value;
     const link = document.getElementById('link').value;
+    const category = document.getElementById('category').value;
+    const newCategory = document.getElementById('new-category').value;
     const documents = document.getElementById('image').files;
     const documents2 = document.getElementById('docs').files;
     
+    let categoryToSave = category;
+    if (category === 'new' && newCategory) {
+        const confirmation = confirm(`Are you sure the category "${newCategory}" is correct?`);
+        if (!confirmation) {
+            return;
+        }
+        
+        // Add the new category to Firestore
+        try {
+            const newCategoryRef = await addDoc(collection(db, 'scholarships'), {
+                name: newCategory,
+                createdAt: serverTimestamp()
+            });
+            categoryToSave = newCategory;  // Use the new category name
+        } catch (error) {
+            console.error('Error adding new category: ', error);
+            alert('Failed to add new category. Please try again.');
+            return;
+        }
+    } else {
+        // Check for case-insensitive matching of existing categories
+        const categoriesSnapshot = await getDocs(collection(db, 'scholarships'));
+        categoriesSnapshot.forEach((doc) => {
+            if (doc.data().category.toLowerCase() === categoryToSave.toLowerCase()) {
+                categoryToSave = doc.data().category;
+            }
+        });
+    }
+
     try {
         const docRef = await addDoc(collection(db, 'scholarships'), {
             name,
@@ -43,6 +113,7 @@ document.getElementById('scholarshipForm').addEventListener('submit', async (e) 
             deadline,
             info,
             link,
+            category: categoryToSave,
             createdAt: serverTimestamp()
         });
 
@@ -68,10 +139,12 @@ document.getElementById('scholarshipForm').addEventListener('submit', async (e) 
         
         await addDoc(collection(db, 'scholarshipFiles'), {
             scholarshipId: docRef.id,
-            files: allFiles
+            files: allFiles,
         });
 
         alert('Scholarship added successfully!');
+        document.getElementById('scholarshipForm').reset();
+        document.getElementById('new-category-group').style.display = 'none';
     } catch (error) {
         console.error('Error adding document: ', error);
         alert('Error adding scholarship. Please try again.');

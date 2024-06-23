@@ -1,6 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
 import { getFirestore, collection, getDocs, updateDoc, doc, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAWObvbOoDNyhvhWJutoRhjIWdNTsTL6-k",
     authDomain: "scholarship-480e8.firebaseapp.com",
@@ -14,30 +15,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function fetchCategories() {
-    try {
-        const querySnapshot = await getDocs(collection(db, 'categories'));
-        return querySnapshot.docs.map(doc => doc.data().name); // Assuming each category document has a 'name' field
-    } catch (error) {
-        console.error('Error fetching categories: ', error);
-        return []; // Return an empty array in case of error
-    }
-}
-
+// Fetch unapproved scholarships
 async function fetchUnapprovedScholarships() {
     try {
         const querySnapshot = await getDocs(collection(db, 'scholarships'));
-        const unapprovedScholarships = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).filter(scholarship => !scholarship.approved);
+        const unapprovedScholarships = querySnapshot.docs
+            .map(doc => ({ id: doc.id, ...doc.data() }))
+            .filter(scholarship => !scholarship.approved); // Filter unapproved scholarships
 
-        // Fetch categories once for all scholarships
-        const categories = await fetchCategories();
-        displayUnapprovedScholarships(unapprovedScholarships, categories);
+        displayUnapprovedScholarships(unapprovedScholarships);
     } catch (error) {
         console.error('Error fetching unapproved scholarships: ', error);
     }
 }
 
-function displayUnapprovedScholarships(scholarships, categories) {
+// Display unapproved scholarships
+function displayUnapprovedScholarships(scholarships) {
     const container = document.getElementById('unapproved-scholarships');
     container.innerHTML = ''; // Clear existing content
 
@@ -49,57 +42,21 @@ function displayUnapprovedScholarships(scholarships, categories) {
                 <div class="card-body">
                     <h5 class="card-title">${scholarship.name}</h5>
                     <p class="card-text">${scholarship.description}</p>
-                    <select class="form-control mb-2 category-dropdown" id="category-${scholarship.id}">
-                        <option value="">Select category</option>
-                        <option value="new">Add new category</option>
-                        <option value="Science">Science</option>
-                        <option value="IT">IT</option>
-                        <option value="Medicine">Medicine</option>
-                        <option value="Science">Science</option>
-                        <option value="IT">IT</option>
-                        <option value="Medicine">Medicine</option>
-                        <option value="Science">Science</option>
-                        <option value="IT">IT</option>
-                        <option value="Medicine">Medicine</option>
-                        ${categories.map(category => `<option value="${category}">${category}</option>`).join('')}
-                        <option value="new">Add new category</option>
-                    </select>
-                    <input type="text" class="form-control mb-2 d-none" placeholder="Enter new category" id="new-category-${scholarship.id}">
+                    <p class="card-text"><strong>Category:</strong> ${scholarship.category}</p>
                     <button class="btn btn-success approve-btn" data-id="${scholarship.id}">Approve</button>
                     <button class="btn btn-danger reject-btn" data-id="${scholarship.id}">Reject</button>
                 </div>
             </div>
         `;
         container.appendChild(scholarshipCard);
-
-        // Add event listener to the dropdown to handle the "Add new category" option
-        const categoryDropdown = document.getElementById(`category-${scholarship.id}`);
-        const newCategoryInput = document.getElementById(`new-category-${scholarship.id}`);
-
-        categoryDropdown.addEventListener('change', (event) => {
-            if (event.target.value === 'new') {
-                newCategoryInput.classList.remove('d-none');
-            } else {
-                newCategoryInput.classList.add('d-none');
-            }
-        });
     });
 
     // Add event listeners to the "Approve" buttons
     document.querySelectorAll('.approve-btn').forEach(button => {
         button.addEventListener('click', async (event) => {
             const scholarshipId = event.target.getAttribute('data-id');
-            const categoryDropdown = document.getElementById(`category-${scholarshipId}`);
-            const selectedCategory = categoryDropdown.value;
-            const newCategoryInput = document.getElementById(`new-category-${scholarshipId}`);
-            const category = selectedCategory === 'new' ? newCategoryInput.value : selectedCategory;
-
-            if (category) {
-                await approveScholarship(scholarshipId, category);
-                fetchUnapprovedScholarships(); // Refresh the list
-            } else {
-                alert('Please select or enter a category.');
-            }
+            await approveScholarship(scholarshipId);
+            fetchUnapprovedScholarships(); // Refresh the list
         });
     });
 
@@ -113,18 +70,19 @@ function displayUnapprovedScholarships(scholarships, categories) {
     });
 }
 
-async function approveScholarship(scholarshipId, category) {
+// Approve a scholarship
+async function approveScholarship(scholarshipId) {
     try {
         const scholarshipRef = doc(db, 'scholarships', scholarshipId);
         await updateDoc(scholarshipRef, {
-            approved: true,
-            category: category
+            approved: true
         });
     } catch (error) {
         console.error('Error approving scholarship: ', error);
     }
 }
 
+// Reject (delete) a scholarship
 async function rejectScholarship(scholarshipId) {
     try {
         const scholarshipRef = doc(db, 'scholarships', scholarshipId);
@@ -134,14 +92,5 @@ async function rejectScholarship(scholarshipId) {
     }
 }
 
+// Fetch and display unapproved scholarships on page load
 document.addEventListener('DOMContentLoaded', fetchUnapprovedScholarships);
-
-// Add CSS styles
-const style = document.createElement('style');
-style.innerHTML = `
-    .category-dropdown {
-        max-height: 50px; /* Approximate height for 5 items */
-        overflow-y: auto; /* Enable vertical scrolling */
-    }
-`;
-document.head.appendChild(style);

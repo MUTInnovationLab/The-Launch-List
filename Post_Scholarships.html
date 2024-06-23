@@ -18,6 +18,20 @@
         <input type="text" class="form-control" id="name" placeholder="" required>
       </div>
       <div class="form-group">
+        <label for="category">Category</label>
+        <select class="form-control mb-2" id="category">
+          <option value="">Select category</option>
+          <!-- Categories will be populated dynamically by JS -->
+          <option value="new">Add new category</option>
+        </select>
+      </div>
+      
+      <!-- Hidden input field for new category -->
+      <div class="form-group" id="new-category-group" style="display: none;">
+        <label for="new-category">New Category</label>
+        <input type="text" class="form-control" id="new-category" placeholder="Enter new category">
+      </div>
+      <div class="form-group">
         <label for="description">Description</label>
         <textarea class="form-control" id="description" rows="4" placeholder="" required></textarea>
       </div>

@@ -38,29 +38,6 @@ async function fetchScholarships() {
     }
 }
 
-// function displayScholarships(scholarships) {
-//     const scholarshipsContainer = document.querySelector('.scholarship-list .row');
-//     scholarshipsContainer.innerHTML = ''; // Clear existing content
-
-//     scholarships.forEach(async (scholarship) => {
-//         const filesSnapshot = await getDocs(collection(db, 'scholarshipFiles'));
-//         const filesData = filesSnapshot.docs.find(doc => doc.data().scholarshipId === scholarship.id)?.data().files || [];
-//         const scholarshipCard = document.createElement('div');
-//         scholarshipCard.className = 'col-md-4 mb-4';
-//         scholarshipCard.innerHTML = `
-//             <div class="card shadow">
-//                 <img src="${filesData.length > 0 ? filesData[0].url : 'https://via.placeholder.com/300x200'}" class="card-img-top" alt="${scholarship.name}">
-//                 <div class="card-body">
-//                     <h5 class="card-title">${scholarship.name}</h5>
-//                     <p class="card-text">${scholarship.description}</p>
-//                     <a href="${scholarship.link}" class="btn btn-primary" target="_blank">Learn More</a>
-//                 </div>
-//             </div>
-//         `;
-//         scholarshipsContainer.appendChild(scholarshipCard);
-//     });
-// }
-
 function displayScholarships(scholarships) {
     const scholarshipsContainer = document.querySelector('.scholarship-list .row');
     scholarshipsContainer.innerHTML = ''; // Clear existing content
@@ -68,6 +45,8 @@ function displayScholarships(scholarships) {
     scholarships.forEach(async (scholarship) => {
         const filesSnapshot = await getDocs(collection(db, 'scholarshipFiles'));
         const filesData = filesSnapshot.docs.find(doc => doc.data().scholarshipId === scholarship.id)?.data().files || [];
+        
+        // Create the scholarship card
         const scholarshipCard = document.createElement('div');
         scholarshipCard.className = 'col-md-4 mb-4';
         scholarshipCard.innerHTML = `
@@ -76,7 +55,7 @@ function displayScholarships(scholarships) {
                 <div class="card-body">
                     <h5 class="card-title">${scholarship.name}</h5>
                     <p class="card-text">${scholarship.description.slice(0, 100)}...</p>
-                    <div class="collapse scholarship-details">
+                    <div class="collapse scholarship-details" id="scholarship-${scholarship.id}">
                         <p><strong>Fields:</strong> ${scholarship.fields}</p>
                         <p><strong>Expenses:</strong> ${scholarship.expenses}</p>
                         <p><strong>Eligibility:</strong> ${scholarship.eligibility}</p>
@@ -86,9 +65,11 @@ function displayScholarships(scholarships) {
                     </div>
                     <button class="btn btn-secondary btn-sm see-more-btn" data-toggle="collapse" data-target="#scholarship-${scholarship.id}" aria-expanded="false">See More</button>
                     <a href="${scholarship.link}" class="btn btn-primary" target="_blank">Learn More</a>
+                    ${filesData.length > 1 ? `<button class="btn btn-outline-info btn-sm download-btn" data-url="${filesData[1].url}">Download Document</button>` : ''}
                 </div>
             </div>
         `;
+        
         scholarshipsContainer.appendChild(scholarshipCard);
 
         // Add event listener to toggle the "See More" button
@@ -98,8 +79,39 @@ function displayScholarships(scholarships) {
             scholarshipDetails.classList.toggle('show');
             seeMoreBtn.textContent = scholarshipDetails.classList.contains('show') ? 'See Less' : 'See More';
         });
+
+        // Add event listener for download button if it exists
+        const downloadBtn = scholarshipCard.querySelector('.download-btn');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', (event) => {
+                const fileUrl = event.target.getAttribute('data-url');
+                downloadDocument(fileUrl);
+            });
+        }
     });
 }
+
+// Function to handle downloading the document
+function downloadDocument(url) {
+    // Create a temporary link element to trigger the download
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank'; // Open in new tab/window
+    link.download = ''; // Download attribute to suggest downloading
+
+    // Append the link to the body
+    document.body.appendChild(link);
+
+    // Trigger the download by simulating a click
+    link.click();
+
+    // Clean up by removing the temporary link
+    document.body.removeChild(link);
+}
+
+// Call fetchScholarships on page load
+document.addEventListener('DOMContentLoaded', fetchScholarships);
+
 
 
 function displayCategories(categories) {
