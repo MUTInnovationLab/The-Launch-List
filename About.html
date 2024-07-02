@@ -15,112 +15,107 @@
     <!-- Animate CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
     <!-- Custom Styles -->
-    <style>
-        /* Custom Styles */
-        body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #f5f5f5;
-            padding-top: 56px;
-        }
-
-        .navbar {
-            background-color: #007bff !important; /* Bootstrap primary color */
-        }
-
-        .navbar-brand img {
-            width: 150px; /* Adjust as per your logo */
-            height: auto;
-        }
-
-        .about-section {
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0,0,0,0.5);
-            padding: 100px 0; /* Adjust padding as needed */
-        }
-
-        .about-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .team-section .card {
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 30px; /* Adjust spacing */
-        }
-
-        .team-section .card img {
-            border-bottom: 5px solid #007bff;
-        }
-
-        .team-section .card-title {
-            margin-top: 10px;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .navbar-nav.ml-auto {
-                margin-top: 10px; /* Adjust margin for better alignment */
-            }
-        }
-    </style>
+   
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Scholarships.html">Scholarships</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="About.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Contact.html">Contact</a>
-                    </li>
-                </ul>
+
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
         </div>
-    </nav>
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="index.html" class="navbar-brand p-0">
+                    <h1 class="text-primary m-0"><i class="fa fa-graduation-cap me-3"></i>Scholarship Admin</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="Scholarships.html" class="nav-item nav-link">Scholarship</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <a href="Post_Scholarships.html" class="btn btn-primary rounded-pill py-2 px-4">Post a Scholarship</a>
+                </div>
+            </nav>
+            <div class="container-fluid bg-primary py-5 hero-header"></div>
+        </div>
 
     <!-- Main Content -->
-    <section class="about-section py-5" style="background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 animate__animated animate__fadeInLeft">
-                    <h1 class="display-4 mb-4">About Us</h1>
-                    <p class="lead">We are a team of passionate individuals dedicated to helping students achieve their academic dreams.</p>
-                    <p>At our scholarship website, our mission is to provide a comprehensive platform for students to easily find and apply for scholarships that match their interests, academic achievements, and financial needs.</p>
-                    <p>We believe that education has the power to transform lives, and we strive to remove financial barriers that may prevent deserving students from pursuing their educational goals.</p>
-                </div>
-                <div class="col-md-6 animate__animated animate__fadeInRight">
-                    <img src="https://via.placeholder.com/500x400" alt="About Us Image" class="img-fluid rounded shadow">
+    <section class="about-section " >
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                        <div class="position-relative h-100">
+                            <!-- <img class="img-fluid position-absolute w-100 h-100" src="image/about.jpg" alt="About Us Image" style="object-fit: cover;"> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                        <h1 class="mb-4">Welcome to <span class="text-primary">Our Scholarship Platform</span></h1>
+                        <p class="mb-4">We are a team of passionate individuals dedicated to helping students achieve their academic dreams.</p>
+                        <p class="mb-4">At our scholarship website, our mission is to provide a comprehensive platform for students to easily find and apply for scholarships that match their interests, academic achievements, and financial needs.</p>
+                        <p class="mb-4">We believe that education has the power to transform lives, and we strive to remove financial barriers that may prevent deserving students from pursuing their educational goals.</p>
+                        <div class="row gy-2 gx-4 mb-4">
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Comprehensive Listings</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>User-Friendly Platform</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Tailored Recommendations</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Support and Guidance</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Verified Scholarships</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Assistance</p>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    
 
     <!-- Team Section -->
     <section class="team-section py-5 bg-light">
@@ -142,7 +137,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <!-- <footer class="bg-dark text-white py-5">
       <div class="container">
         <div class="row">
           <div class="col-md-4">
@@ -168,14 +163,89 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
+
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">About Us</h4>
+                    <p>We are dedicated to helping students find and apply for scholarships.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">Company</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">FAQs & Help</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.navbar-light .navbar-nav .nav-link');
+    
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+    
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Libraries -->
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="lib/wow/wow.min.js"></script>
+   <script src="lib/easing/easing.min.js"></script>
+   <script src="lib/waypoints/waypoints.min.js"></script>
+   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+   <script src="lib/tempusdominus/js/moment.min.js"></script>
+   <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+   <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Optional: Adding animate.css library for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

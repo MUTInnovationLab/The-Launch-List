@@ -6,114 +6,138 @@
   <title>Scholarship Website</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
   <!-- Font Awesome (for icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <!-- Google Fonts -->
+  <!-- Google Fonts - Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
   <!-- pdf.js -->
   <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo">
+
+  <div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="text-primary m-0"><i class="fa fa-graduation-cap me-3"></i>Scholarship Admin</h1>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Scholarships.html">Scholarships</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="About.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/Contact.html">Contact</a>
-            </li>
-          </ul>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="Scholarships.html" class="nav-item nav-link">Scholarship</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="Post_Scholarships.html" class="btn btn-primary rounded-pill py-2 px-4">Post a Scholarship</a>
         </div>
-      </div>
     </nav>
-  </header>
+    <div class="container-fluid bg-primary py-5 hero-header"></div>
+</div>
+
+
+  <!-- Hero Section -->
+  <section class="hero py-5">
+  
+    <div class="container text-center">
+    <h1 class="display-4 mb-4">Find Your Dream Scholarship</h1>
+      <p class="lead">Explore thousands of scholarships and unlock your full potential.</p> 
+       <form class="mt-4">  
+        <div class="form-group w-50 mx-auto">
+          <input type="text" class="form-control form-control-lg rounded-pill" id="scholarship-search" placeholder="Search for scholarships...">
+        </div>
+      </form>
+    </div>
+  </section>
 
   <!-- Category Filter Section -->
   <section class="category-filter py-3 bg-light">
     <div class="container">
-      <div class="d-flex flex-row flex-nowrap overflow-auto">
+      <div class="d-flex flex-row flex-wrap justify-content-center">
         <!-- Category blocks will be dynamically inserted here -->
       </div>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Hero Section -->
-    <section class="hero py-5">
-      <div class="container">
-            <!-- Scholarship Search Form -->
-            <form>
-              <div class="form-group">
-                <div class="position-relative w-75 mx-auto animated slideInDown">
-                  <input type="text" id="scholarship-search" class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" placeholder="Search for scholarships...">
-                  <!-- <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button> -->
-                </div>
-                
-                
-              </div>
-            </form>
+  <!-- Scholarship List -->
+  <section class="scholarship-list py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Featured Scholarships</h2>
+      <div class="row">
+        <!-- Scholarship cards will be dynamically inserted here -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Scholarship Image">
+            <div class="card-body">
+              <h5 class="card-title">Scholarship Title</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <a href="#" class="btn btn-primary">View Details</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Scholarship List -->
-    <section class="scholarship-list py-5">
-      <div class="container">
-        <h2 class="text-center mb-4">Category Scholarships</h2>
-        <div class="row">
-          <!-- Scholarship cards will be dynamically inserted here -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Scholarship Details -->
-    <section class="scholarship-details">
-      <!-- Scholarship Details Modal -->
-      <div class="modal fade" id="scholarshipModal" tabindex="-1" role="dialog" aria-labelledby="scholarshipModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="scholarshipModalLabel">Scholarship Details</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!-- Scholarship details will be loaded here -->
-              <div id="pdf-viewer"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Scholarship Image">
+            <div class="card-body">
+              <h5 class="card-title">Scholarship Title</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <a href="#" class="btn btn-primary">View Details</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- Scholarship Details Modal -->
+  <div class="modal fade" id="scholarshipModal" tabindex="-1" role="dialog" aria-labelledby="scholarshipModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="scholarshipModalLabel">Scholarship Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Scholarship details will be loaded here -->
+          <div id="pdf-viewer"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white py-5">
+  <!-- <footer class="bg-dark text-white py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -124,9 +148,9 @@
           <h5>Quick Links</h5>
           <ul class="list-unstyled">
             <li><a href="index.html" class="text-white">Home</a></li>
-            <li><a href="Scholarships.html" class="text-white">Scholarships</a></li>
-            <li><a href="About.html" class="text-white">About</a></li>
-            <li><a href="Contact.html" class="text-white">Contact</a></li>
+            <li><a href="scholarships.html" class="text-white">Scholarships</a></li>
+            <li><a href="about.html" class="text-white">About</a></li>
+            <li><a href="contact.html" class="text-white">Contact</a></li>
           </ul>
         </div>
         <div class="col-md-4">
@@ -139,11 +163,89 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> -->
+
+  <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <h4 class="text-white mb-3">About Us</h4>
+                <p>We are dedicated to helping students find and apply for scholarships.</p>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h4 class="text-white mb-3">Company</h4>
+                <a class="btn btn-link" href="">About Us</a>
+                <a class="btn btn-link" href="">Contact Us</a>
+                <a class="btn btn-link" href="">Privacy Policy</a>
+                <a class="btn btn-link" href="">Terms & Condition</a>
+                <a class="btn btn-link" href="">FAQs & Help</a>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h4 class="text-white mb-3">Contact</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="">Home</a>
+                        <a href="">Cookies</a>
+                        <a href="">Help</a>
+                        <a href="">FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navLinks = document.querySelectorAll('.navbar-light .navbar-nav .nav-link');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    });
+</script>
+
 
   <!-- Bootstrap JS -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   <!-- Custom JS -->
+
+
+   <!-- JavaScript Libraries -->
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="lib/wow/wow.min.js"></script>
+   <script src="lib/easing/easing.min.js"></script>
+   <script src="lib/waypoints/waypoints.min.js"></script>
+   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+   <script src="lib/tempusdominus/js/moment.min.js"></script>
+   <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+   <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
   <script type="module" src="js/app.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

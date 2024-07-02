@@ -39,31 +39,7 @@ async function fetchScholarships() {
 }
 //navbar method
 // navbar.js
-function loadNavbar() {
-    const navbarHtml = `
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Scholarships.html">Scholarships</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="About.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    `;
-  
-    document.getElementById('navbar-container').innerHTML = navbarHtml;
-  }
-  
-  // Call the function when the document is loaded
-  document.addEventListener("DOMContentLoaded", loadNavbar);
+
   
 
 function displayScholarships(scholarships) {

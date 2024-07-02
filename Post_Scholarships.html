@@ -1,160 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scholarship Admin</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship </title>
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container my-5">
-    <h1 class="text-center mb-4">Add New Scholarship or Bursary</h1>
-    <form id="scholarshipForm" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="name">Scholarship/Bursary Name</label>
-        <input type="text" class="form-control" id="name" placeholder="" required>
-      </div>
-      <div class="form-group">
-        <label for="category">Category</label>
-        <select class="form-control mb-2" id="category">
-          <option value="">Select category</option>
-          <!-- Categories will be populated dynamically by JS -->
-          <option value="new">Add new category</option>
-        </select>
-      </div>
-      
-      <!-- Hidden input field for new category -->
-      <div class="form-group" id="new-category-group" style="display: none;">
-        <label for="new-category">New Category</label>
-        <input type="text" class="form-control" id="new-category" placeholder="Enter new category">
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" rows="4" placeholder="" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="name">Fields covered</label>
-        <input type="text" class="form-control" id="fields" placeholder="" required>
-      </div>
-      <div class="form-group">
-        <label for="name">Expenses Covered</label>
-        <input type="text" class="form-control" id="expenses" placeholder="" required>
-      </div>
-      <div class="form-group">
-        <label for="name">Eligibility</label>
-        <input type="text" class="form-control" id="eligibility" placeholder="" required>
-      </div>
-      <div class="form-group">
-        <label for="name">Documents Required</label>
-        <input type="text" class="form-control" id="documentz" placeholder="" required>
-      </div>
-      <div class="form-group">
-        <label for="deadline">Application Deadline</label>
-        <input type="date" class="form-control" id="deadline" required>
-      </div>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="text-primary m-0"><i class="fa fa-graduation-cap me-3"></i>Scholarship Admin</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="Scholarships.html" class="nav-item nav-link">Scholarship</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="post.html" class="btn btn-primary rounded-pill py-2 px-4">Post a scholarship</a>
+            </div>
+        </nav>
+        <div class="container-fluid bg-primary py-5 mb-5 hero-header"></div>
+    </div>
+    <!-- Scholarship Form -->
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Add New Scholarship or Bursary</h1>
+        <form id="scholarshipForm" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="name" class="form-label">Scholarship/Bursary Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-control" id="category" required>
+                        <option value="">Select category</option>
+                        <option value="new">Add new category</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3" id="new-category-group" style="display: none;">
+                    <label for="new-category" class="form-label">New Category</label>
+                    <input type="text" class="form-control" id="new-category">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" rows="4" required></textarea>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="fields" class="form-label">Fields covered</label>
+                    <input type="text" class="form-control" id="fields" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="expenses" class="form-label">Expenses Covered</label>
+                    <input type="text" class="form-control" id="expenses" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="eligibility" class="form-label">Eligibility</label>
+                    <input type="text" class="form-control" id="eligibility" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="documentz" class="form-label">Documents Required</label>
+                    <input type="text" class="form-control" id="documentz" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="deadline" class="form-label">Application Deadline</label>
+                    <input type="date" class="form-control" id="deadline" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="info" class="form-label">Bursary Provider Info</label>
+                    <input type="text" class="form-control" id="info" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="link" class="form-label">Application Link</label>
+                    <input type="url" class="form-control" id="link" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="image" class="form-label">Upload Image/Logo</label>
+                    <input type="file" class="form-control" id="image" multiple required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="docs" class="form-label">Upload Document Details</label>
+                    <input type="file" class="form-control" id="docs" multiple required>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
 
-      <div class="form-group">
-        <label for="name">Bursary provider info</label>
-        <input type="text" class="form-control" id="info" placeholder="" required>
-      </div>
+    <!-- Firebase JS SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+        import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+        import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
 
-      <div class="form-group">
-        <label for="name">Application Link</label>
-        <input type="text" class="form-control" id="link" placeholder="" required>
-      </div>
+       
 
-      <div class="form-group">
-        <label for="documents">Upload Image/Logo</label>
-        <input type="file" class="form-control-file" id="image" multiple required>
-        <small class="form-text text-muted"></small>
-      </div>
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
 
-      <div class="form-group">
-        <label for="documents">Upload Document details</label>
-        <input type="file" class="form-control-file" id="docs" multiple required>
-        <small class="form-text text-muted"></small>
-      </div>
-      
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
+        document.getElementById('scholarshipForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-  <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-    import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-    import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const fields = document.getElementById('fields').value;
+            const expenses = document.getElementById('expenses').value;
+            const eligibility = document.getElementById('eligibility').value;
+            const documentz = document.getElementById('documentz').value;
+            const deadline = document.getElementById('deadline').value;
+            const info = document.getElementById('info').value;
+            const link = document.getElementById('link').value;
+            const image = document.getElementById('image').files[0];
+            const documents = document.getElementById('docs').files;
 
-    // const firebaseConfig = {
-    //   apiKey: "AIzaSyA1yd7lAFXJh-VZ2il5fDzqfWqGuSyregY",
-    //   authDomain: "workscape-84122.firebaseapp.com",
-    //   projectId: "workscape-84122",
-    //   storageBucket: "workscape-84122.appspot.com",
-    //   messagingSenderId: "734998941399",
-    //   appId: "1:734998941399:web:1a69bc537ee162f64e6a92"
-    // };
+            try {
+                const docRef = await addDoc(collection(db, 'scholarships'), {
+                    name,
+                    description,
+                    fields,
+                    expenses,
+                    eligibility,
+                    documentz,
+                    deadline,
+                    info,
+                    link,
+                    timestamp: serverTimestamp()
+                });
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const storage = getStorage(app);
+                const storageRef = ref(storage, `scholarships/${docRef.id}`);
+                const imageRef = ref(storageRef, image.name);
+                await uploadBytes(imageRef, image);
+                const imageURL = await getDownloadURL(imageRef);
 
-    document.getElementById('scholarshipForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
+                const docUploads = [];
+                for (const file of documents) {
+                    const fileRef = ref(storageRef, file.name);
+                    docUploads.push(uploadBytes(fileRef, file));
+                }
+                await Promise.all(docUploads);
 
-      const name = document.getElementById('name').value;
-      const description = document.getElementById('description').value;
-      const fields = document.getElementById('fields').value;
-      const expenses = document.getElementById('expenses').value;
-      const eligibility = document.getElementById('eligibility').value;
-      const documentz = document.getElementById('documentz').value;
-      const deadline = document.getElementById('deadline').value;
-      const info = document.getElementById('info').value;
-      const link = document.getElementById('link').value;
-      const images = document.getElementById('image').value;
-      const documents2 = document.getElementById('docs').files
+                const docURLs = await Promise.all(docUploads.map(async (uploadTask) => {
+                    const fileRef = uploadTask.ref;
+                    return await getDownloadURL(fileRef);
+                }));
 
-      try {
-        const docRef = await addDoc(collection(db, 'scholarships'), {
-          name,
-          description,
-          fields,
-          expenses,
-          eligibility,
-          documentz,
-          deadline,
-          info,
-          link,
-          timestamp: serverTimestamp()
+                await addDoc(collection(db, 'scholarships', docRef.id, 'documents'), {
+                    imageURL,
+                    docURLs
+                });
+
+                alert('Scholarship or bursary added successfully!');
+                document.getElementById('scholarshipForm').reset();
+            } catch (error) {
+                console.error('Error adding document: ', error);
+                alert('Failed to add scholarship or bursary.');
+            }
         });
+    </script>
 
-        const storageRef = ref(storage, `scholarships/${docRef.id}`);
-        const uploadPromises = [];
-        for (const file of files) {
-          const fileRef = ref(storageRef, file.name);
-          uploadPromises.push(uploadBytes(fileRef, file));
-        }
-        await Promise.all(uploadPromises);
-
-        const fileURLs = await Promise.all(uploadPromises.map(async (uploadTask) => {
-          const fileRef = uploadTask.ref;
-          return await getDownloadURL(fileRef);
-        }));
-
-        await addDoc(collection(db, 'scholarships', docRef.id, 'documents'), {
-          files: fileURLs
-        });
-
-        alert('Scholarship or bursary added successfully!');
-        document.getElementById('scholarshipForm').reset();
-      } catch (error) {
-        console.error('Error adding document: ', error);
-        alert('Failed to add scholarship or bursary.');
-      }
-    });
-  </script>
-  <!-- Custom JS -->
-  <script type="module" src="js/admin.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
 </body>
 </html>

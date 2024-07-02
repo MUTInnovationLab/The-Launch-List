@@ -1,197 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scholarship Website</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Font Awesome (for icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- pdf.js -->
-  <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <title>Scholarships</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-  <!-- Slick CSS -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon"> 
 
-  <!-- Slick JS -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-        padding-top: 56px; /* Adjust based on the height of the navbar */
-    }
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    .category-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-.category-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50px;
-    margin: 2px;
-}
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 
-.circular-div {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #f0f0f0;
-    border: 2px solid #ccc;
-    font-size: 24px;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-
-</style>
 </head>
+
 <body>
+    <style>
+        .scholarships-slider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .category-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .category-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+            margin: 2px;
+        }
+    
+        .circular-div {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            border: 2px solid #ccc;
+            font-size: 24px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+    </style>
 
-  <!-- Header -->
-  <header>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Scholarships.html">Scholarships</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="About.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/Contact.html">Contact</a>
-            </li>
-          </ul>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
-      </div>
-
-
-
-
-  </nav>
-
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    <!-- Hero Section -->
-    <section class="hero py-5 p-top-20">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h1 class="display-4">Find Your Dream Scholarship</h1>
-            <p class="lead">Explore thousands of scholarships and unlock your full potential.</p>
-          </div>
-          <!-- <div class="col-md-6">
-            
-            <form>
-              <div class="form-group">
-                <input type="text" class="form-control form-control-lg" placeholder="Search for scholarships...">
-              </div>
-              <button type="submit" class="btn btn-light btn-lg btn-block">Search</button>
-            </form>
-          </div> -->
-        </div>
-      </div>
-    </section>
-
-   
-    <section class="scholarship-list py-5">
-      <div class="container mt-5">
-        <h1 class="mb-4">Scholarships by Category</h1>
-        <div id="scholarships-container">
-          <!-- Scholarships will be dynamically inserted here -->
-        </div>
-      </div>
-    </section>
- 
-
-    <!-- Scholarship Details -->
-    <section class="scholarship-details">
-      <!-- Scholarship Details Modal -->
-      <div class="modal fade" id="scholarshipModal" tabindex="-1" role="dialog" aria-labelledby="scholarshipModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="scholarshipModalLabel">Scholarship Details</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!-- Scholarship details will be loaded here -->
-              <div id="pdf-viewer"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-dark text-white py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5>About Us</h5>
-          <p>We are dedicated to helping students find and apply for scholarships.</p>
-        </div>
-        <div class="col-md-4">
-          <h5>Quick Links</h5>
-          <ul class="list-unstyled">
-            <li><a href="index.html" class="text-white">Home</a></li>
-            <li><a href="Scholarships.html" class="text-white">Scholarships</a></li>
-            <li><a href="About.html" class="text-white">About</a></li>
-            <li><a href="Contact.html" class="text-white">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h5>Connect with Us</h5>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a></li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </footer>
+    <!-- Spinner End -->
 
-  <!-- Bootstrap JS -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Custom JS -->
-  <script type="module" src="js/home.js"></script>
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="text-primary m-0"><i class="fa fa-graduation-cap me-3"></i>Scholarship Admin</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="Scholarships.html" class="nav-item nav-link">Scholarship</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="Post_Scholarships.html" class="btn btn-primary rounded-pill py-2 px-4">Post a Scholarship</a>
+            </div>
+        </nav>
+        <div class="container-fluid bg-primary py-5 hero-header"></div>
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- Scholarships by Category -->
+    <section class="scholarship-list py-5">
+        <div class="container mt-5">
+          <h1 class="mb-4">Scholarships by Category</h1>
+          <div id="scholarships-container">
+            <!-- Scholarships will be dynamically inserted here -->
+          </div>
+        </div>
+      </section>
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
+                <h1 class="mb-5">Our Services</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                            <h5>New Scholarships</h5>
+                            <p>Discover and apply for new scholarships tailored to your needs and qualifications.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-search text-primary mb-4"></i>
+                            <h5>Scholarship Search</h5>
+                            <p>Use our advanced search tools to find scholarships that match your profile.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-file-alt text-primary mb-4"></i>
+                            <h5>Application Guidance</h5>
+                            <p>Get expert advice and tips on how to prepare and submit a winning scholarship application.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-info-circle text-primary mb-4"></i>
+                            <h5>Scholarship Information</h5>
+                            <p>Stay informed with the latest updates and news on various scholarships available.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Service End -->
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Team members</h6>
+                <h1 class="mb-5">Meet Our members</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-1.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Jabulani Gwala</h5>
+                            <small>Project Manager</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-2.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-3.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-4.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+                <h1 class="mb-5">Our Clients Say!!!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">John Doe</h5>
+                    <p>New York, USA</p>
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">John Doe</h5>
+                    <p>New York, USA</p>
+                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">John Doe</h5>
+                    <p>New York, USA</p>
+                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">John Doe</h5>
+                    <p>New York, USA</p>
+                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+        
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">About Us</h4>
+                    <p>We are dedicated to helping students find and apply for scholarships.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">Company</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">FAQs & Help</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.navbar-light .navbar-nav .nav-link');
+    
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+    
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script type="module" src="js/home.js"></script>
 </body>
+
 </html>
