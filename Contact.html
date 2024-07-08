@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Scholarships</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <title>Contact Us - Scholarships</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="scholarships, contact, education">
+    <meta name="description" content="Get in touch with us for any queries or assistance regarding scholarships.">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -42,7 +42,7 @@
                 transform: translateX(0);
             }
         }
-        
+
         @keyframes slideInRight {
             from {
                 opacity: 0;
@@ -53,7 +53,7 @@
                 transform: translateX(0);
             }
         }
-        
+
         .animate-slide-left {
             animation: slideInLeft 1s ease-out;
         }
@@ -63,58 +63,56 @@
         }
 
         .contact-section .form-group {
-    margin-bottom: 1.5rem;
-}
+            margin-bottom: 1.5rem;
+        }
 
-.contact-section h2, .contact-section h1 {
-    margin-bottom: 1.5rem;
-}
+        .contact-section h1, .contact-section h2 {
+            margin-bottom: 1.5rem;
+        }
 
-.contact-section ul {
-    padding-left: 0;
-}
+        .contact-section ul {
+            padding-left: 0;
+            list-style-type: none;
+        }
+   
+        .contact-section ul li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
 
-.contact-section ul li {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
+        .contact-section ul li i {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
 
-.contact-section ul li i {
-    margin-right: 0.5rem;
-    /* Icon color */
-}
+        .contact-section .btn {
+            margin-top: 1rem;
+        }
 
-.contact-section .btn {
-    margin-top: 1rem;
-}
+        .contact-section {
+            padding: 2rem 0;
+        }
 
-/* Additional styling for better spacing and alignment */
-.contact-section {
-    padding: 2rem 0;
-}
+        .contact-section h2 {
+            font-size: 2rem;
+            color: #333;
+        }
 
-.contact-section h2 {
-    font-size: 2rem;
-    color: #333;
-}
+        .contact-section ul li {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
 
-.contact-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.contact-section ul li {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.contact-section ul li i {
-    margin-right: 0.5rem;
-    font-size: 1.5rem;
-    
-}
+        /* Custom styling for the box */
+        .contact-info-box, .contact-form-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 
@@ -141,7 +139,7 @@
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="Scholarships.html" class="nav-item nav-link">Scholarship</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="contact.html" class="nav-item nav-link active">Contact</a>
                 </div>
                 <a href="Post_Scholarships.html" class="btn btn-primary rounded-pill py-2 px-4">Post a Scholarship</a>
             </div>
@@ -154,39 +152,51 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 animate-slide-left">
-                    <h1 class="display-4 mb-4">Contact Us</h1>
-                    <p class="lead">Have a question or need assistance? Get in touch with us.</p>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" required>
+                    <div class="container">
+                        <div class="contact-form-box">
+                            <h3 class="display-4 mb-4">Leave us a message</h3>
+                            <p class="lead">Have a question or need assistance? Get in touch with us.</p>
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea class="form-control" id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    </div>
                 </div>
                 <div class="col-md-6 animate-slide-right">
-                  <h2 class="mb-4">Get in Touch</h2>
-                  <ul class="list-unstyled">
-                    <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, State</li>
-                    <li><i class="fas fa-phone"></i> (123) 456-7890</li>
-                    <li><i class="fas fa-envelope"></i> info@scholarshipwebsite.com</li>
-                  </ul>
-                </div>
-          
+                  <div class="container">
+                      <div class="contact-info-box">
+                          <h2 class="mb-4">Get in Touch</h2>
+                          <ul class="list-unstyled mb-4">
+                          
+                            <li><i class="fas fa-map-marker-alt"></i> 511 Griffiths Mxenge Highway  Umlazi  Durban  4031 </li>
+                              <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                              <li><i class="fas fa-envelope"></i> info@scholarshipwebsite.com</li>
+                          </ul>
+                          <!-- Google Maps Embed -->
+                          <div class="map-responsive">
+                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3463.527013338642!2d30.93159021514292!3d-29.945536981903233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6c905c1725b67%3A0x8a68754d1e36d6b3!2s511%20Griffiths%20Mxenge%20Hwy%2C%20Umlazi%2C%20Durban%2C%204031!5e0!3m2!1sen!2sza!4v1625734465535!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                          </div>
+                      </div>
+                  </div>
+              </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6 animate-slide-left">
@@ -195,22 +205,22 @@
                 </div>
                 <div class="col-lg-4 col-md-6 animate-slide-left">
                     <h4 class="text-white mb-3">Company</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
                     <a class="btn btn-link" href="">Privacy Policy</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="">FAQs & Help</a>
                 </div>
                 <div class="col-lg-4 col-md-6 animate-slide-right">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Main Street, City, State</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>(123) 456-7890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@scholarshipwebsite.com</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -225,30 +235,32 @@
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FAQs</a>
+                            <a href="#">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FAQs</a>
                         </div>
-                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-
-  <!-- Bootstrap JS, Popper.js, and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- JavaScript Libraries -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/tempusdominus/js/moment.min.js"></script>
-  <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-  <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
