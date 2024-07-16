@@ -29,3 +29,5 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
     document.body.insertAdjacentHTML('afterbegin', navbarHTML);
 });
+
+
