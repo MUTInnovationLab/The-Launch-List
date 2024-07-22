@@ -216,18 +216,58 @@
                     </div>
                 </div>
                 <div class="col-md-6 animate-slide-right">
-                    <div class="contact-info-box">
-                        <h2>Contact Information</h2>
-                        <ul>
-                            <li><i class="fas fa-map-marker-alt"></i> 123 Main St, City, State, Country</li>
-                            <li><i class="fas fa-phone"></i> (123) 456-7890</li>
-                            <li><i class="fas fa-envelope"></i> info@scholarshipadmin.com</li>
-                            <li><i class="fas fa-globe"></i> www.scholarshipadmin.com</li>
-                        </ul>
+                    <div class="container">
+                        <div class="contact-info-box">
+                            <h2 class="mb-4">Get in Touch</h2>
+                            <ul class="list-unstyled mb-4">
+                            
+                              <li><i class="fas fa-map-marker-alt"></i> 511 Griffiths Mxenge Highway  Umlazi  Durban  4031 </li>
+                                <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                                <li><i class="fas fa-envelope"></i> info@scholarshipwebsite.com</li>
+                            </ul>
+                            <!-- Google Maps Embed -->
+                            <div class="map-responsive">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3463.527013338642!2d30.93159021514292!3d-29.945536981903233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6c905c1725b67%3A0x8a68754d1e36d6b3!2s511%20Griffiths%20Mxenge%20Hwy%2C%20Umlazi%2C%20Durban%2C%204031!5e0!3m2!1sen!2sza!4v1625734465535!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+              </div>
+          </div>
+    
+  
+
+        </script>
+
+        <script type="text/javascript">
+          document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            // Collect the form data
+            const formData = {
+              from_name: document.getElementById('name').value,
+              from_email: document.getElementById('email').value,
+              message: document.getElementById('message').value
+            };
+        
+            // Send the form data using EmailJS
+            emailjs.send('scholarship.website', 'template_diu7o6t', formData)
+        .then(function(response) {
+
+            console.log('Email sent successfully:', response);
+            alert('Your message has been sent successfully!');
+          
+            document.getElementById('contact-form').reset();
+        }, function(error) {
+            console.error('Failed to send email:', error);
+            alert('Oops! An error occurred, please try again later.');
+        });
+});
+
+        </script>
+
+
+        
     </section>
 
     <!-- Template Javascript -->
