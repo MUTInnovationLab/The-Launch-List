@@ -1,16 +1,15 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+
+<head>
     <meta charset="utf-8">
-    <title>Contact Us - Scholarships</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="scholarships, contact, education">
-    <meta name="description" content="Get in touch with us for any queries or assistance regarding scholarships.">
+    <title>FAQs - Scholarships</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="scholarships, FAQ, education" name="keywords">
+    <meta content="Find answers to frequently asked questions about scholarships." name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon"> 
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,85 +30,70 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scholarship FAQs</title>
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        header {
+        .faq-header {
             background-color: #4CAF50;
             color: white;
             padding: 20px;
             text-align: center;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-        }
-        nav a {
-            padding: 14px 20px;
-            display: block;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        .container {
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #4CAF50;
-        }
         .faq-section {
-            margin: 20px 0;
+            padding: 40px 20px;
         }
-        .faq-section h2 {
-            color: #4CAF50;
-        }
-        .faq-section .question {
-            font-weight: bold;
+        .faq-item {
+            margin-bottom: 20px;
             cursor: pointer;
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #f1f1f1;
-            border: 1px solid #ddd;
         }
-        .faq-section .answer {
-            display: none;
-            margin-left: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-left: 3px solid #4CAF50;
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .faq-answer {
+            padding-left: 20px;
+            display: none; /* Hide answers by default */
         }
     </style>
 </head>
+
 <body>
 
-
-      <!-- Spinner Start -->
-      <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-     Spinner End -->
+    <!-- Spinner End -->
 
-    <!-- Navigation Bar -->
-    <!-- <div class="container-fluid position-relative p-0">
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="index.html" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-graduation-cap me-3"></i>Scholarship Admin</h1>
+                <h1 class="text-primary m-0"><i class="fa fa-graduation-cap me-3"></i>Scholarship</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -119,90 +103,101 @@
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="Scholarships.html" class="nav-item nav-link">Scholarship</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="FAQ.html" class="nav-item nav-link active">FAQs</a>
                 </div>
                 <a href="Post_Scholarships.html" class="btn btn-primary rounded-pill py-2 px-4">Post a Scholarship</a>
             </div>
         </nav>
-        <div class="container-fluid bg-primary py-5 hero-header"></div>
-    </div>  -->
-
-
-<div class="container">
-    <h1>Frequently Asked Questions</h1>
-    <div class="faq-section">
-        <h2>Application Process</h2>
-        <div class="question">Q1: How do I apply for a scholarship?</div>
-        <div class="answer">A: To apply for a scholarship, you need to fill out the online application form available on our website under the 'Apply Now' section. Ensure you provide all the required documents and information.</div>
-
-        <div class="question">Q2: What documents are required for the application?</div>
-        <div class="answer">A: Generally, you will need to submit your academic transcripts, a personal statement, letters of recommendation, and proof of financial need if applicable. Please check the specific requirements for each scholarship.</div>
     </div>
-    
-    <div class="faq-section">
-        <h2>Eligibility Criteria</h2>
-        <div class="question">Q1: Who is eligible to apply for the scholarships?</div>
-        <div class="answer">A: Eligibility criteria vary for each scholarship. Typically, applicants must be enrolled in or have been accepted to a full-time degree program. Specific scholarships may have additional requirements based on academic achievement, field of study, or financial need.</div>
-    
-        <div class="question">Q2: Can international students apply for these scholarships?</div>
-        <div class="answer">A: Yes, many of our scholarships are open to international students. Please refer to the eligibility criteria of each scholarship for more details.</div>
+    <!-- Navbar End -->
+
+    <!-- FAQ Section Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">FAQs</h6>
+                <h1 class="mb-5">Frequently Asked Questions</h1>
+            </div>
+            <div class="faq-section">
+                <div class="faq-item wow fadeInUp" data-wow-delay="0.1s" onclick="toggleAnswer(this)">
+                    <h4 class="faq-question">What is a scholarship?</h4>
+                    <p class="faq-answer">A scholarship is a form of financial aid awarded to students to help them pay for their education. Scholarships are typically awarded based on various criteria, such as academic merit, financial need, or specific talents and interests.</p>
+                </div>
+                <div class="faq-item wow fadeInUp" data-wow-delay="0.2s" onclick="toggleAnswer(this)">
+                    <h4 class="faq-question">How can I apply for a scholarship?</h4>
+                    <p class="faq-answer">To apply for a scholarship, you will need to find scholarships that you are eligible for, gather the necessary application materials, and submit your application before the deadline. Our website offers tools and resources to help you find and apply for scholarships.</p>
+                </div>
+                <div class="faq-item wow fadeInUp" data-wow-delay="0.3s" onclick="toggleAnswer(this)">
+                    <h4 class="faq-question">What documents are required for scholarship applications?</h4>
+                    <p class="faq-answer">The documents required for scholarship applications vary depending on the scholarship. Commonly required documents include academic transcripts, letters of recommendation, a personal statement or essay, and proof of financial need.</p>
+                </div>
+                <div class="faq-item wow fadeInUp" data-wow-delay="0.4s" onclick="toggleAnswer(this)">
+                    <h4 class="faq-question">When is the best time to apply for scholarships?</h4>
+                    <p class="faq-answer">The best time to apply for scholarships is typically during your junior or senior year of high school, but there are scholarships available for students at all stages of their education. It's important to research and apply for scholarships as early as possible to maximize your chances of receiving aid.</p>
+                </div>
+                <div class="faq-item wow fadeInUp" data-wow-delay="0.5s" onclick="toggleAnswer(this)">
+                    <h4 class="faq-question">Can international students apply for scholarships?</h4>
+                    <p class="faq-answer">Yes, many scholarships are available to international students. However, eligibility criteria vary by scholarship, so it's important to read the requirements carefully to determine if you qualify.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="faq-section">
-        <h2>Deadlines and Notifications</h2>
-        <div class="question">Q1: What is the deadline for scholarship applications?</div>
-        <div class="answer">A: Deadlines vary for each scholarship. Please check the specific scholarship page for the exact deadline. It is advisable to apply well before the deadline to avoid any last-minute issues.</div>
-    
-        <div class="question">Q2: How will I be notified if I receive a scholarship?</div>
-        <div class="answer">A: Successful applicants will be notified via email. Notifications are usually sent out within a few weeks after the application deadline.</div>
+    <!-- FAQ Section End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">About Us</h4>
+                    <p>We are dedicated to helping students find and apply for scholarships.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">Quick Links</h4>
+                    <a class="btn btn-link" href="about.html">About</a>
+                    <a class="btn btn-link" href="contact.html">Contact</a>
+                    <a class="btn btn-link" href="FAQ.html">FAQs</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+012 345 6789</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="faq-section">
-        <h2>Additional Information</h2>
-        <div class="question">Q1: Can I apply for more than one scholarship?</div>
-        <div class="answer">A: Yes, you can apply for multiple scholarships as long as you meet the eligibility criteria for each one. However, you will need to submit a separate application for each scholarship.</div>
-    
-        <div class="question">Q2: Who can I contact if I have more questions?</div>
-        <div class="answer">A: If you have any additional questions, please contact our support team via email at support@scholarshipwebsite.com or call us at (123) 456-7890.</div>
-    </div>
-</div>
+    <!-- Footer End -->
 
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-<!-- Template Javascript -->
-       <!-- Bootstrap JS, Popper.js, and jQuery -->
-       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-       <!-- JavaScript Libraries -->
-       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-       <script src="lib/wow/wow.min.js"></script>
-       <script src="lib/easing/easing.min.js"></script>
-       <script src="lib/waypoints/waypoints.min.js"></script>
-       <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-       <script src="lib/tempusdominus/js/moment.min.js"></script>
-       <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-       <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-   
-       <script src="js/main.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const questions = document.querySelectorAll('.question');
-        questions.forEach(question => {
-            question.addEventListener('click', function() {
-                const answer = this.nextElementSibling;
-                if (answer.style.display === "block") {
-                    answer.style.display = "none";
-                } else {
-                    answer.style.display = "block";
-                }
-            });
-        });
-    });
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 
-
-    
-</script>
+    <script>
+        function toggleAnswer(element) {
+            var answer = element.querySelector('.faq-answer');
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+            } else {
+                answer.style.display = 'none';
+            }
+        }
+    </script>
 </body>
-</html>    
+
+</html>

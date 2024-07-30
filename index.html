@@ -40,6 +40,11 @@
             justify-content: center;
             align-items: center;
         }
+
+        
+    .service-item {
+      cursor: pointer;
+    }
     
         .category-wrapper {
             display: flex;
@@ -85,7 +90,7 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>511 Griffiths Mxenge Highway  Umlazi  Durban  4031</small>
                     <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
                     <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
                 </div>
@@ -107,7 +112,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="index.html" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-graduation-cap me-3"></i>Scholarship Admin</h1>
+                <h1 class="text-primary m-0"><i class="fa fa-graduation-cap me-3"></i>Scholarship </h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -146,20 +151,24 @@
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                            <h5>New Scholarships</h5>
-                            <p>Discover and apply for new scholarships tailored to your needs and qualifications.</p>
-                        </div>
+                        <a href="Scholarships.html#featured-scholarships" class="text-decoration-none text-dark">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                                <h5>New Scholarships</h5>
+                                <p>Discover and apply for new scholarships tailored to your needs and qualifications.</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-search text-primary mb-4"></i>
-                            <h5>Scholarship Search</h5>
-                            <p>Use our advanced search tools to find scholarships that match your profile.</p>
-                        </div>
+                        <a href="Scholarships.html#search-form" class="text-decoration-none text-dark">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-search text-primary mb-4"></i>
+                                <h5>Scholarship Search</h5>
+                                <p>Use our advanced search tools to find scholarships that match your profile.</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -180,126 +189,120 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="service-item rounded pt-3">
+                        <a href="Post_Scholarships.html" class="text-decoration-none text-dark">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-bullhorn text-primary mb-4"></i>
+                                <h5>Post a Scholarship</h5>
+                                <p>If you are a scholarship provider, you can post a scholarship here to reach potential applicants.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
+    
     <!-- Service End -->
 
-    <!-- Team Start -->
-    <div class="container-xxl py-5">
+    <section class="team-section py-5 bg-light">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Team members</h6>
-                <h1 class="mb-5">Meet Our members</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Jabulani Gwala</h5>
-                            <small>Project Manager</small>
+            <h2 class="text-center mb-4">Meet Our Team</h2>
+            <div class="row">
+                <!-- Team Member 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card animate__animated animate__fadeInUp">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="John Doe">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Jabulani Gwala</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Founder & CEO</h6>
+                            <p class="card-text">Jabulani is the visionary behind our platform, dedicated to providing innovative solutions for students seeking financial aid.</p>
+                            <div class="social-icons mt-3">
+                                <a href="https://linkedin.com/in/johndoe" class="btn btn-outline-primary btn-sm me-2" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com/johndoe" class="btn btn-outline-primary btn-sm me-2" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="https://facebook.com/johndoe" class="btn btn-outline-primary btn-sm" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-2.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-3.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                <!-- Team Member 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Jane Smith">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Vusi Gwala</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Chief Operating Officer</h6>
+                            <p class="card-text">Vusi ensures that our operations run smoothly and efficiently, with a focus on providing the best user experience.</p>
+                            <div class="social-icons mt-3">
+                                <a href="https://linkedin.com/in/janesmith" class="btn btn-outline-primary btn-sm me-2" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com/janesmith" class="btn btn-outline-primary btn-sm me-2" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="https://facebook.com/janesmith" class="btn btn-outline-primary btn-sm" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-4.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                <!-- Team Member 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Robert Brown">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Robert Brown</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Chief Technology Officer</h6>
+                            <p class="card-text">Robert leads our technology initiatives, ensuring that our platform is secure, reliable, and user-friendly.</p>
+                            <div class="social-icons mt-3">
+                                <a href="https://linkedin.com/in/robertbrown" class="btn btn-outline-primary btn-sm me-2" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com/robertbrown" class="btn btn-outline-primary btn-sm me-2" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="https://facebook.com/robertbrown" class="btn btn-outline-primary btn-sm" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Team End -->
+    </section>
 
 
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Clients Say!!!</h1>
+ <!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center">
+            <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+            <h1 class="mb-5">Our Clients Say!!!</h1>
+            <p class="mb-5">We are proud to share that our clients are happy with our work and the services we provide.</p>
+        </div>
+        <div class="owl-carousel testimonial-carousel position-relative">
+            <div class="testimonial-item bg-white text-center border p-4">
+                <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Wandile Khumalo</h5>
+                <p>Durban, SA</p>
+                <p class="mb-0">The scholarship search tool was incredibly easy to use and helped me find numerous scholarships that I was eligible for. The application guidance was also very helpful and ensured that my applications were strong and competitive.</p>
             </div>
-            <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-                <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-                <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-                <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
+            <div class="testimonial-item bg-white text-center border p-4">
+                <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Slindile Dlamini</h5>
+                <p>Verulam, SA</p>
+                <p class="mt-2 mb-0">I was impressed with the comprehensive list of scholarships available on the website. The regular updates and detailed information provided made the whole process of finding and applying for scholarships so much easier.</p>
+            </div>
+            <div class="testimonial-item bg-white text-center border p-4">
+                <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Thandeka Nkosi</h5>
+                <p>Musgrave, SA</p>
+                <p class="mt-2 mb-0">Thanks to this service, I was able to secure multiple scholarships that significantly reduced the financial burden of my college education. The support and resources provided were top-notch and extremely beneficial.</p>
+            </div>
+            <div class="testimonial-item bg-white text-center border p-4">
+                <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Ayanda Buthelezi</h5>
+                <p>Berea, SA</p>
+                <p class="mt-2 mb-0">The personalized scholarship recommendations were spot on. It saved me a lot of time and effort, and I felt confident in my applications with the guidance provided. Highly recommend this service to all students.</p>
             </div>
         </div>
     </div>
-    <!-- Testimonial End -->
+</div>
+<!-- Testimonial End -->
+
+
         
 
     <!-- Footer Start -->
@@ -314,8 +317,7 @@
                     <h4 class="text-white mb-3">Company</h4>
                     <a class="btn btn-link" href="/About.html">About Us</a>
                     <a class="btn btn-link" href="/Contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    
                     <a class="btn btn-link" href="">FAQs & Help</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -387,6 +389,10 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script type="module" src="js/home.js"></script>
+
+
+
+    
 </body>
 
 </html>

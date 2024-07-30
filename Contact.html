@@ -113,8 +113,33 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        @media (max-width: 767.98px) {
+            .contact-section .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .contact-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-section ul li {
+                font-size: 1rem;
+            }
+
+            .contact-section {
+                padding: 1rem 0;
+            }
+        }
     </style>
     <!-- Firebase SDK -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("your_user_id"); // Replace with your EmailJS user ID
+        })();
+    </script>
+    
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
@@ -122,21 +147,21 @@
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
-    apiKey: "AIzaSyAWObvbOoDNyhvhWJutoRhjIWdNTsTL6-k",
-    authDomain: "scholarship-480e8.firebaseapp.com",
-    projectId: "scholarship-480e8",
-    storageBucket: "scholarship-480e8.appspot.com",
-    messagingSenderId: "900430271329",
-    appId: "1:900430271329:web:ca53beb6a6aea45d742b20",
-    measurementId: "G-0QSSG444CW"
-};
+            apiKey: "AIzaSyAWObvbOoDNyhvhWJutoRhjIWdNTsTL6-k",
+            authDomain: "scholarship-480e8.firebaseapp.com",
+            projectId: "scholarship-480e8",
+            storageBucket: "scholarship-480e8.appspot.com",
+            messagingSenderId: "900430271329",
+            appId: "1:900430271329:web:ca53beb6a6aea45d742b20",
+            measurementId: "G-0QSSG444CW"
+        };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
         document.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('submit').addEventListener('click', function(e) {
+            document.getElementById('submitBtn').addEventListener('click', function(e) {
                 e.preventDefault();
                 const username = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
@@ -170,7 +195,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="index.html" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-graduation-cap me-3"></i>Scholarship Admin</h1>
+                <h1 class="text-primary m-0"><i class="fa fa-graduation-cap me-3"></i>Scholarship </h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -192,100 +217,110 @@
     <section class="contact-section py-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 animate-slide-left">
-                    <div class="container">
-                        <div class="contact-form-box">
-                            <h3 class="display-4 mb-4">Leave us a message</h3>
-                            <p class="lead">Have a question or need assistance? Get in touch with us.</p>
-                            <form>
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea class="form-control" id="message" rows="4" required></textarea>
-                                </div>
-                                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-slide-right">
-                    <div class="container">
-                        <div class="contact-info-box">
-                            <h2 class="mb-4">Get in Touch</h2>
-                            <ul class="list-unstyled mb-4">
-                            
-                              <li><i class="fas fa-map-marker-alt"></i> 511 Griffiths Mxenge Highway  Umlazi  Durban  4031 </li>
-                                <li><i class="fas fa-phone"></i> (123) 456-7890</li>
-                                <li><i class="fas fa-envelope"></i> info@scholarshipwebsite.com</li>
-                            </ul>
-                            <!-- Google Maps Embed -->
-                            <div class="map-responsive">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3463.527013338642!2d30.93159021514292!3d-29.945536981903233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6c905c1725b67%3A0x8a68754d1e36d6b3!2s511%20Griffiths%20Mxenge%20Hwy%2C%20Umlazi%2C%20Durban%2C%204031!5e0!3m2!1sen!2sza!4v1625734465535!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="col-md-6 animate-slide-left mb-4">
+                    <div class="contact-form-box">
+                        <h3 class="display-4 mb-4">Leave us a message</h3>
+                        <p class="lead">Have a question or need assistance? Get in touch with us.</p>
+                        <form id="emailForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" required>
                             </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" id='submitBtn' class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6 animate-slide-right mb-4">
+                    <div class="contact-info-box">
+                        <h2 class="mb-4">Get in Touch</h2>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class="fas fa-map-marker-alt"></i> 511 Griffiths Mxenge Highway  Umlazi  Durban  4031 </li>
+                            <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                            <li><i class="fas fa-envelope"></i> info@scholarshipwebsite.com</li>
+                        </ul>
+                        <!-- Google Maps Embed -->
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3463.527013338642!2d30.93159021514292!3d-29.945536981903233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6c905c1725b67%3A0x8a68754d1e36d6b3!2s511%20Griffiths%20Mxenge%20Hwy%2C%20Umlazi%2C%20Durban%2C%204031!5e0!3m2!1sen!2sza!4v1625734465535!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
-              </div>
-          </div>
-    
-  
-
-        </script>
-
-        <script type="text/javascript">
-          document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-        
-            // Collect the form data
-            const formData = {
-              from_name: document.getElementById('name').value,
-              from_email: document.getElementById('email').value,
-              message: document.getElementById('message').value
-            };
-        
-            // Send the form data using EmailJS
-            emailjs.send('scholarship.website', 'template_diu7o6t', formData)
-        .then(function(response) {
-
-            console.log('Email sent successfully:', response);
-            alert('Your message has been sent successfully!');
-          
-            document.getElementById('contact-form').reset();
-        }, function(error) {
-            console.error('Failed to send email:', error);
-            alert('Oops! An error occurred, please try again later.');
-        });
-});
-
-        </script>
-
-
-        
+            </div>
+        </div>
     </section>
 
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">About Us</h4>
+                    <p>We are dedicated to helping students find and apply for scholarships.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">Company</h4>
+                    <a class="btn btn-link" href="/About.html">About Us</a>
+                    <a class="btn btn-link" href="/Contact.html">Contact Us</a>
+                    
+                    <a class="btn btn-link" href="/FAQ's.html">FAQs & Help</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>511 Griffiths Mxenge Highway  Umlazi  Durban  4031</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Schoolarship Website</a>, All Right Reserved.
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">Innovation Lab</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="FAQ's.html">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Template Javascript -->
-       <!-- Bootstrap JS, Popper.js, and jQuery -->
-       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-       <!-- JavaScript Libraries -->
-       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-       <script src="lib/wow/wow.min.js"></script>
-       <script src="lib/easing/easing.min.js"></script>
-       <script src="lib/waypoints/waypoints.min.js"></script>
-       <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-       <script src="lib/tempusdominus/js/moment.min.js"></script>
-       <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-       <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-       <script src="js/main.js"></script>
-      
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
