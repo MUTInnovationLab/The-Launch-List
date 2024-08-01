@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scholarship </title>
+    <title>Scholarship</title>
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
     <!-- Google Web Fonts -->
@@ -119,11 +119,21 @@
 
     <!-- Firebase JS SDK -->
     <script type="module">
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAWObvbOoDNyhvhWJutoRhjIWdNTsTL6-k",
+            authDomain: "scholarship-480e8.firebaseapp.com",
+            databaseURL: "https://scholarship-480e8-default-rtdb.firebaseio.com",
+            projectId: "scholarship-480e8",
+            storageBucket: "scholarship-480e8.appspot.com",
+            messagingSenderId: "900430271329",
+            appId: "1:900430271329:web:ca53beb6a6aea45d742b20",
+             measurementId: "G-0QSSG444CW"
+          };
+
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
         import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
         import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
-
-       
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
@@ -142,10 +152,25 @@
             const info = document.getElementById('info').value;
             const link = document.getElementById('link').value;
             const image = document.getElementById('image').files[0];
-            const documents = document.getElementById('docs').files;
+            const docs = document.getElementById('docs').files;
 
             try {
-                const docRef = await addDoc(collection(db, 'scholarships'), {
+                // Upload image
+                const imageRef = ref(storage, 'images/' + image.name);
+                await uploadBytes(imageRef, image);
+                const imageUrl = await getDownloadURL(imageRef);
+
+                // Upload documents
+                const docsUrls = [];
+                for (const doc of docs) {
+                    const docRef = ref(storage, 'docs/' + doc.name);
+                    await uploadBytes(docRef, doc);
+                    const docUrl = await getDownloadURL(docRef);
+                    docsUrls.push(docUrl);
+                }
+
+                // Add scholarship details to Firestore
+                await addDoc(collection(db, 'scholarships'), {
                     name,
                     description,
                     fields,
@@ -155,36 +180,25 @@
                     deadline,
                     info,
                     link,
-                    timestamp: serverTimestamp()
+                    imageUrl,
+                    docsUrls,
+                    createdAt: serverTimestamp()
                 });
 
-                const storageRef = ref(storage, `scholarships/${docRef.id}`);
-                const imageRef = ref(storageRef, image.name);
-                await uploadBytes(imageRef, image);
-                const imageURL = await getDownloadURL(imageRef);
-
-                const docUploads = [];
-                for (const file of documents) {
-                    const fileRef = ref(storageRef, file.name);
-                    docUploads.push(uploadBytes(fileRef, file));
-                }
-                await Promise.all(docUploads);
-
-                const docURLs = await Promise.all(docUploads.map(async (uploadTask) => {
-                    const fileRef = uploadTask.ref;
-                    return await getDownloadURL(fileRef);
-                }));
-
-                await addDoc(collection(db, 'scholarships', docRef.id, 'documents'), {
-                    imageURL,
-                    docURLs
-                });
-
-                alert('Scholarship or bursary added successfully!');
+                alert('Scholarship added successfully!');
                 document.getElementById('scholarshipForm').reset();
             } catch (error) {
-                console.error('Error adding document: ', error);
-                alert('Failed to add scholarship or bursary.');
+                console.error('Error adding scholarship: ', error);
+                alert('Error adding scholarship');
+            }
+        });
+
+        document.getElementById('category').addEventListener('change', function() {
+            const newCategoryGroup = document.getElementById('new-category-group');
+            if (this.value === 'new') {
+                newCategoryGroup.style.display = 'block';
+            } else {
+                newCategoryGroup.style.display = 'none';
             }
         });
     </script>
