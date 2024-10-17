@@ -121,14 +121,13 @@
     <script type="module">
         // Your web app's Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyAWObvbOoDNyhvhWJutoRhjIWdNTsTL6-k",
-            authDomain: "scholarship-480e8.firebaseapp.com",
-            databaseURL: "https://scholarship-480e8-default-rtdb.firebaseio.com",
-            projectId: "scholarship-480e8",
-            storageBucket: "scholarship-480e8.appspot.com",
-            messagingSenderId: "900430271329",
-            appId: "1:900430271329:web:ca53beb6a6aea45d742b20",
-             measurementId: "G-0QSSG444CW"
+            apiKey: "AIzaSyCFz6TF6mh2fQ-GWJpEeY46LyIY6yB-gb4",
+  authDomain: "launchlistscholar.firebaseapp.com",
+  projectId: "launchlistscholar",
+  storageBucket: "launchlistscholar.appspot.com",
+  messagingSenderId: "793457467249",
+  appId: "1:793457467249:web:4728d562236c81bc8560d0",
+  measurementId: "G-GPCQSTP3FN"
           };
 
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
@@ -143,6 +142,7 @@
             e.preventDefault();
 
             const name = document.getElementById('name').value;
+            const category = document.getElementById('new-category').value || 'not specified';
             const description = document.getElementById('description').value;
             const fields = document.getElementById('fields').value;
             const expenses = document.getElementById('expenses').value;
@@ -172,6 +172,7 @@
                 // Add scholarship details to Firestore
                 await addDoc(collection(db, 'scholarships'), {
                     name,
+                    category,
                     description,
                     fields,
                     expenses,
@@ -185,7 +186,7 @@
                     createdAt: serverTimestamp()
                 });
 
-                alert('Scholarship added successfully!');
+                alert('Scholarship added successfully!gfkffgfgfgfg');
                 document.getElementById('scholarshipForm').reset();
             } catch (error) {
                 console.error('Error adding scholarship: ', error);
@@ -202,7 +203,6 @@
             }
         });
     </script>
-
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

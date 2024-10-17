@@ -96,43 +96,51 @@
 
     <!-- Firebase JS SDK -->
     <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-        import { getFirestore, collection, getDocs, updateDoc, doc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+import { getFirestore, collection, getDocs, doc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 
-        const firebaseConfig = {
-            // Your Firebase configuration
-        };
+const firebaseConfig = {
+    apiKey: "AIzaSyCFz6TF6mh2fQ-GWJpEeY46LyIY6yB-gb4",
+    authDomain: "launchlistscholar.firebaseapp.com",
+    projectId: "launchlistscholar",
+    storageBucket: "launchlistscholar.appspot.com",
+    messagingSenderId: "793457467249",
+    appId: "1:793457467249:web:4728d562236c81bc8560d0",
+    measurementId: "G-GPCQSTP3FN"
+};
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-        document.addEventListener('DOMContentLoaded', async () => {
-            const scholarshipsContainer = document.getElementById('unapproved-scholarships');
-            const querySnapshot = await getDocs(collection(db, 'unapproved_scholarships'));
+document.addEventListener('DOMContentLoaded', async () => {
+    const scholarshipsContainer = document.getElementById('unapproved-scholarships');
+    const querySnapshot = await getDocs(collection(db, 'scholarships'));
 
-            querySnapshot.forEach((doc) => {
-                const scholarship = doc.data();
-                const scholarshipCard = document.createElement('div');
-                scholarshipCard.classList.add('col-md-4', 'mb-3');
-                scholarshipCard.innerHTML = `
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">${scholarship.name}</h5>
-                            <p class="card-text">${scholarship.description}</p>
-                            <button class="btn btn-success" onclick="approveScholarship('${doc.id}')">Approve</button>
-                        </div>
-                    </div>
-                `;
-                scholarshipsContainer.appendChild(scholarshipCard);
-            });
-        });
+    querySnapshot.forEach((doc) => {
+        const scholarship = doc.data();
+        const scholarshipCard = document.createElement('div');
+        scholarshipCard.classList.add('col-md-4', 'mb-3');
+        scholarshipCard.innerHTML = `
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${scholarship.name}</h5>
+                    <p class="card-text">${scholarship.description}</p>
+                    <button class="btn btn-success" onclick="approveScholarship('${doc.id}')">Approve</button>
+                </div>
+            </div>
+        `;
+        scholarshipsContainer.appendChild(scholarshipCard);
+    });
+});
 
-        async function approveScholarship(id) {
-            const docRef = doc(db, 'unapproved_scholarships', id);
-            await updateDoc(docRef, { approved: true });
-            alert('Scholarship approved!');
-            location.reload();
-        }
+// Attach approveScholarship to the window object to make it globally accessible
+window.approveScholarship = async function (id) {
+    const docRef = doc(db, 'scholarships', id);
+    await updateDoc(docRef, { approved: true });
+    alert('Scholarship approved!');
+    location.reload();
+};
+
     </script>
 
     <!-- JavaScript Libraries -->

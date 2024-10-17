@@ -3,13 +3,13 @@ import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/fireb
 import { getStorage, ref, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAttPgb4lZ4Aki8i9Uqec6YkDNETPFuV6k",
-  authDomain: "scholarship-76632.firebaseapp.com",
-  projectId: "scholarship-76632",
-  storageBucket: "scholarship-76632.appspot.com",
-  messagingSenderId: "596975275612",
-  appId: "1:596975275612:web:60880032ef32ccf4cc2099",
-  measurementId: "G-DMWPVLCJ8V"
+  apiKey: "AIzaSyCFz6TF6mh2fQ-GWJpEeY46LyIY6yB-gb4",
+  authDomain: "launchlistscholar.firebaseapp.com",
+  projectId: "launchlistscholar",
+  storageBucket: "launchlistscholar.appspot.com",
+  messagingSenderId: "793457467249",
+  appId: "1:793457467249:web:4728d562236c81bc8560d0",
+  measurementId: "G-GPCQSTP3FN"
 };
 
 const app = initializeApp(firebaseConfig);
