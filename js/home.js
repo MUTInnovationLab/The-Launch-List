@@ -40,7 +40,7 @@ function displayScholarshipsByCategory(scholarships) {
     sliderDiv.className = 'scholarships-slider';
 
     for (const category in categories) {
-        alert(category);
+        // alert(category);
         const categoryWrapper = document.createElement('div');
         categoryWrapper.className = 'category-wrapper';
 
