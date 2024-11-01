@@ -145,7 +145,7 @@ document.getElementById('contact-forms').addEventListener('submit', function(eve
     };
 
     // Send the form data using EmailJS
-    emailjs.send('scholarship.website', 'template_diu7o6t', formData)
+    emailjs.send('service_rpdsxup', 'template_p7godvn', formData)
         .then(function(response) {
 
             console.log('Email sent successfully:', response);

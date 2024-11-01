@@ -89,6 +89,33 @@
             }
         }
     });
+
+     // Populate Category Dropdown
+     const categories = [
+        "Science", "Technology", "Health and Medicine", "Arts and Humanities", "Social Sciences",
+        "Business", "Education", "Law", "Engineering", "Agriculture", "Environmental Studies",
+        "Mathematics", "Information Technology", "Psychology", "Journalism and Media", "Architecture",
+        "Fashion Design", "Public Policy", "Veterinary Science", "Chemistry", "Biology", "Physics",
+        "Nursing", "Public Health", "Finance", "Marketing", "Entrepreneurship", "Graphic Design",
+        "Performing Arts", "Literature", "History", "Philosophy", "Sociology", "Political Science",
+        "Economics", "Criminal Justice", "Environmental Law", "Computer Engineering", "Software Development",
+        "Data Science", "Speech and Language Pathology", "Family and Consumer Sciences", "Media Studies",
+        "Industrial Design", "Game Design", "Music", "Theatre Arts", "Digital Marketing", "Community Development"
+    ];
+
+    function populateCategoryDropdown() {
+        const categorySelect = document.getElementById('category');
+        
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category.toLowerCase().replace(/\s+/g, '_');  // Example: "Health and Medicine" -> "health_and_medicine"
+            option.textContent = category;
+            categorySelect.appendChild(option);
+        });
+    }
+
+    // Run the populate function when the DOM is fully loaded
+    $(document).ready(populateCategoryDropdown);
     
 })(jQuery);
 
