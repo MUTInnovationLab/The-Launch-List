@@ -31,6 +31,9 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- FontAwesome for the icon -->
+
+
 </head>
 
 <body>
@@ -207,6 +210,161 @@
         });
         
         </script>
+
+<!-- Modal structure -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Forbidden icon -->
+        <div class="forbidden forbidden-icon">
+             <!-- FontAwesome "ban" icon -->
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Modal Background */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%);
+        backdrop-filter: blur(8px);
+        animation: fadeIn 0.6s ease; /* Smooth fade-in */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background: linear-gradient(135deg, #ffffff, #f8f9fa); /* Light gradient for a soft effect */
+        border-radius: 16px;
+        box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.3), 0px 5px 15px rgba(0, 0, 0, 0.2); /* Layered shadow for depth */
+        margin: auto;
+        padding: 40px 32px;
+        border: 1px solid rgba(0, 0, 0, 0.05); /* Light border for extra detail */
+        width: 90%;
+        max-width: 480px;
+        animation: slideDown 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        transform-origin: top;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        color: #2c3e50;
+        position: relative; /* For decorative elements */
+    }
+
+    /* Decorative Border Effect */
+    .modal-content:before, .modal-content:after {
+        content: '';
+        position: absolute;
+        border-radius: 16px;
+        pointer-events: none;
+    }
+
+    .modal-content:before {
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
+        border: 2px solid rgba(41, 128, 185, 0.2);
+        filter: blur(6px);
+        opacity: 0.8;
+    }
+
+    /* Close Button */
+    .close {
+        color: #bdc3c7;
+        position: absolute;
+        top: 18px;
+        right: 24px;
+        font-size: 22px;
+        font-weight: 700;
+        cursor: pointer;
+        border-radius: 50%;
+        padding: 4px 8px;
+        transition: all 0.3s ease;
+    }
+
+    .close:hover {
+        color: #e74c3c;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Primary Button Styling */
+    .modal-button {
+        display: block;
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: #ffffff;
+        padding: 14px 24px;
+        font-size: 17px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 10px;
+        margin-top: 20px;
+        transition: background 0.3s ease, transform 0.2s ease;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .modal-button:hover {
+        background: linear-gradient(135deg, #2980b9, #1c598a);
+        transform: scale(1.06);
+    }
+
+    /* Text Styling */
+    .modal h1 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #34495e;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    .modal p {
+        font-size: 16px;
+        color: #7f8c8d;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    /* Keyframes for Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+        from { transform: translateY(-30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 600px) {
+        .modal-content {
+            width: 92%;
+            padding: 28px;
+        }
+        .close {
+            top: 10px;
+            right: 16px;
+        }
+    }
+</style>
+
+
+
         </div>
     </div>
     <!-- Navbar & Hero End -->
@@ -395,6 +553,7 @@
                 <div class="col-lg-4 col-md-6">
                     <h4 class="text-white mb-3">About Us</h4>
                     <p>We are dedicated to helping students find and apply for scholarships.</p>
+                    <a href="#" id="admin-link">Admin</a> 
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h4 class="text-white mb-3">Company</h4>

@@ -119,3 +119,61 @@
     
 })(jQuery);
 
+
+const modal = document.getElementById("myModal");
+const adminLink = document.getElementById("admin-link");
+
+// Prevent page scroll when link is clicked
+adminLink.addEventListener("click", handleAdminLinkClick);
+
+function handleAdminLinkClick(e) {
+    e.preventDefault(); // Prevent default link behavior (stopping scroll and refresh)
+
+    // Show the forbidden icon briefly
+    const forbiddenIcon = document.querySelector('.forbidden');
+    forbiddenIcon.classList.add('show-icon'); // Show the forbidden icon
+
+    // Hide the forbidden icon after 1 second
+    setTimeout(function() {
+        forbiddenIcon.classList.remove('show-icon'); // Hide the icon after 1 second
+    }, 1000); // Duration of the icon display
+
+    // Show modal after showing forbidden icon
+    showModal();
+}
+
+// Modal show function
+function showModal() {
+    modal.style.display = "block";
+}
+
+// Modal close functionality
+document.getElementById("closeModal").onclick = function() {
+    modal.style.display = "none";
+};
+
+// Close modal when clicking outside of it
+window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+// Login form validation
+document.getElementById("loginForm").addEventListener("submit", handleLoginSubmit);
+
+function handleLoginSubmit(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // Basic login validation (you can extend this as needed)
+    if (username === "Admin" && password === "Admin0987#") {
+        window.location.href = "http://127.0.0.1:5501/admin.html"; // Redirect to admin page
+    } else {
+        alert("Incorrect username or password!");
+    }
+}
+
+
