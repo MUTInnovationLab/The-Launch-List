@@ -98,10 +98,62 @@
     </div>
     <!-- Topbar End -->
 
-    <div class="relative py-3 sm:max-w-xl sm:mx-auto w-full">
+    <style>
+      .header {
+        position:relative;
+        
+        background:linear-gradient(
+          60deg,
+          rgb(15, 61, 23) 0%,
+          rgb(116, 224, 53) 100%
+        );
+        color: white;
+      }
+      .waves{
+        position: relative;
+        width: 100%;
+        height: 15vh;
+        margin-bottom: -7px;
+      }
+
+      .parallax > use{
+        animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+      }
+      .parallax > use:nth-child(1){
+        animation-delay: -2s;
+        animation-duration: 7s;
+      }
+      .parallax > use:nth-child(2){
+        animation-delay: -3s;
+        animation-duration: 10s;
+      }
+      .parallax > use:nth-child(3){
+        animation-delay: -4s;
+        animation-duration: 13s;
+      }
+      .parallax > use:nth-child(4){
+        animation-delay: -5s;
+        animation-duration: 20s;
+      }
+      @keyframes move-forever{
+        0% {
+          transform: translate3d(-90px, 0, 0);
+        }
+        100% {
+          transform: translate3d(85px, 0, 0);
+        }
+      }
+      
+    </style>
+
+    <div class="header">
+
+    <div class="relative py-5 sm:max-w-xl sm:mx-auto w-full">
+      
       <div
         class="relative px-4 py-10 bg-black mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
       >
+      
         <div class="max-w-md mx-auto text-white">
           <div class="flex items-center justify-center">
             <!-- <svg
@@ -358,8 +410,53 @@
       </div>
     </div>
     
+    <div>
+      <svg
+      class="waves"
+      viewBox="0 24 150 28"
+      preserveAspectRatio="none"
+      shape-rendering="auto" 
+      >
+
+        <defs>
+            <path
+            id="gentle-wave"
+            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+            />  
+        </defs>
+        <g class="parallax">
+          <use
+          xlink:href="#gentle-wave"
+          x="48"
+          y="0"
+          fill="rgba(255,255,255,0.7)"
+          />
+          <use
+          xlink:href="#gentle-wave"
+          x="48"
+          y="3"
+          fill="rgba(255,255,255,0.5)"
+          />
+          <use
+          xlink:href="#gentle-wave"
+          x="48"
+          y="5"
+          fill="rgba(255,255,255,0.3)"
+          />
+          <use
+          xlink:href="#gentle-wave"
+          x="48"
+          y="7"
+          fill="#fff"
+          />
+        </g>
+        </svg>
+    </div>
+  
+  </div>
+    
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-1 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
